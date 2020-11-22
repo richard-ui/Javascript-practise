@@ -10,13 +10,16 @@
     <link rel="stylesheet" href="css/style.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/github-information.js"></script>
 
-    <style type="text/css">
-        /* It's usually bad practice to include css like this but for demos it's ok. */
-        .container {
-            margin-top: 20px;
-        }
-    </style>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_57t1ug1vZiBD8ezXEWhqF");
+   })();
+</script>
 </head>
 
 <body>
@@ -40,49 +43,38 @@
                     </ul>
                 </div>
             </div>
-        </nav>
-        <article id="home-page">
-            <section class="jumbotron">
-                <h1>The DOM</h1>
-                <p>The good, the bad and the ugly.</p>
-            </section>
-        </article>
-    <div id="container">
+        </nav>	
 
-		<div class="card">	
-			<button class="makeRed">Button One</button>
-		</div>
-		<div class="card">	
-			<button class="makeRed">Button Two</button>
-		</div>
-
-        <div class="box one">
-		</div>
-		<div class="box three">
-		</div>
-		<div class="box one">
-		</div>
-		
-		<div class="box two">
-		</div>
-		<div class="box one">
-		</div>
-		<div class="box two">
-		</div>
-		
-		<div class="box three">
-		</div>
-		<div class="box three">
-		</div>
-		<div class="box two">
-		</div>
-	</div>		
-
-      <div id="map"></div>
-
-
-
+    <div class="center-form">
+      <b>Enter Github Username:</b>
+        <div>
+            <div class="center-form">
+                    <input type="text" id="gh-username" value="octocat" oninput="fetchGitHubInformation()" />
+                    <div id="gh-user-data"></div>
+                    <div id="gh-repo-data"></div>
+                </div>
+        </div>
     </div>
+
+    <div class="contact-form">
+      <b>Contact Form:</b>
+        <div>
+             <div class="center-form">
+                <form onsubmit="return sendMail(this);">
+                    <input type="text" name="name" class="form-control" id="fullname" placeholder="Name" required/>
+                    <input type="text" name="emailaddress" class="form-control" id="emailaddress" placeholder="Email" required/>
+                    <textarea rows="5" name="projectsummary" class="form-control" id="projectsummary" placeholder="Project Description" required></textarea>
+                    <button type="submit" class="btn btn-secondary center-block">Send Project Request</button>
+
+                    <label id="success-form"></label>
+                </form>
+           
+            </div>
+        </div>
+    </div>
+       
+      </div>
+    <script src="js/sendEmail.js"></script>
     
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgxyEm5dI5lYx7I-hEqHDU2OVlA8U0IMQ&callback=initMap"></script>
